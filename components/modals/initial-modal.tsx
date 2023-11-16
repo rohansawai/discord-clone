@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { useEffect, useState } from "react";
+import { FileUpload } from "../file-upload";
 const formSchema = z.object({
   name: z.string().min(1, {
     message: "Server name required",
@@ -33,6 +35,11 @@ const formSchema = z.object({
 });
 
 const InitialModal = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,6 +53,10 @@ const InitialModal = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log(values);
   };
+
+  if (!isMounted) {
+    return null;
+  }
   return (
     <Dialog open>
       <DialogContent
@@ -65,9 +76,18 @@ const InitialModal = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="space-y-8 px-6">
-              
               <div className="flex items-center justify-center text-center">
-                TODO: Img Upload
+                <FormField
+                  control={form.control}
+                  name="imageUrl"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <FileUpload/>
+                      </FormControl>
+                    </FormItem>
+                  )}
+                ></FormField>
               </div>
 
               <FormField
@@ -84,15 +104,15 @@ const InitialModal = () => {
                         {...field}
                       />
                     </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
-
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
-                <Button disabled={isLoading}>
-                    Create
-                </Button>
+              <Button variant={"primary"} disabled={isLoading}>
+                Create
+              </Button>
             </DialogFooter>
           </form>
         </Form>
