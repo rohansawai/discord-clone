@@ -8,6 +8,7 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 
 import { ServerHeader } from "./server-header";
+import { ServerSearch } from "./server-search";
 
 interface ServerSidebarProps {
   serverId: string;
@@ -72,7 +73,7 @@ export const ServerSidebar = async ({
         server={server}
         role={role}
       />
-      {/* <ScrollArea className="flex-1 px-3">
+      <ScrollArea className="flex-1 px-3">
         <div className="mt-2">
           <ServerSearch
             data={[
@@ -195,7 +196,7 @@ export const ServerSidebar = async ({
             </div>
           </div>
         )}
-      </ScrollArea> */}
+      </ScrollArea>
     </div>
   )
 }
