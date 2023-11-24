@@ -15,9 +15,9 @@ model Proflie {
   imageUrl String @db.Text
   email String @db.Text
 
-  server Server[]
-  member Member[]
-  channel Channel[]
+  servers Server[]
+  members Member[]
+  channels Channel[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -27,13 +27,13 @@ model Server {
   id String @id @default(uuid())
   name String
   imageUrl String @db.Text
-  inviteCode String @db.Text
+  inviteCode String @unique
 
   profileId String
   profile Proflie @relation(fields: [profileId], references: [id], onDelete: Cascade)
   
-  member Member[]
-  channel Channel[]
+  members Member[]
+  channels Channel[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
