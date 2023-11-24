@@ -18,11 +18,11 @@ export const NavigationItem = ({ id, imageUrl, name }: NavigationItemProps) => {
   const router = useRouter();
 
   const onClick = () => {
-    router.push(`servers/${id}`);
-  }
+    router.push(`/servers/${id}`);
+  };
   return (
     <ActionTooltip side="right" align="center" label={name}>
-      <button onClick={() => {}} className="group relative flex intem-center">
+      <button onClick={onClick} className="group relative flex intem-center">
         <div
           className={cn(
             "absolute left-0 bg-primary rounded-r-full transition-all w-[4px]",
@@ -37,7 +37,7 @@ export const NavigationItem = ({ id, imageUrl, name }: NavigationItemProps) => {
               "bg-primary/10 text-primary rounded-[16px]"
           )}
         >
-          <Image fill src={imageUrl} alt="Channel"/>
+          <Image fill src={imageUrl} alt="Channel" />
         </div>
       </button>
     </ActionTooltip>
