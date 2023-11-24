@@ -9,6 +9,9 @@ import { db } from "@/lib/db";
 
 import { ServerHeader } from "./server-header";
 import { ServerSearch } from "./server-search";
+import { ServerChannel } from "./server-channel";
+import { ServerSection } from "./server-section";
+import { ServerMember } from "./server-member";
 
 interface ServerSidebarProps {
   serverId: string;
