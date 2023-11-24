@@ -5,12 +5,12 @@ import "@uploadthing/react/styles.css";
 import { error } from "console";
 import { X } from "lucide-react";
 import Image from "next/image";
-interface FileUploadProp {
+interface FileUploadProps {
   onChange: (url?: string) => void;
   value: string;
   endpoint: "messageFile" | "serverImage";
 }
-export const FileUpload = ({ onChange, value, endpoint }: FileUploadProp) => {
+export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
   const fileType = value.split(".").pop();
   if (value && fileType != "pdf") {
     return (
