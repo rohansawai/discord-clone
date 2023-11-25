@@ -1,8 +1,8 @@
 import { Hash } from "lucide-react";
 
-import { MobileToggle } from "@/components/ui/mobile-toggle";
+import { MobileToggle } from "@/components/mobile-toggle";
 import { UserAvatar } from "@/components/ui/user-avatar";
-import { SocketIndicator } from "@/components/ui/socket-indicator";
+import { SocketIndicator } from "@/components/socket-indicator";
 
 import { ChatVideoButton } from "./chat-video-button";
 
