@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LiveKitRoom, VideoConference } from "@livekit/components-react";
-import "@livekit/components-styles";
+// import { LiveKitRoom, VideoConference } from "@livekit/components-react";
+// import "@livekit/components-styles";
 import { Channel } from "@prisma/client";
 import { useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
@@ -51,15 +51,16 @@ export const MediaRoom = ({
   }
 
   return (
-    <LiveKitRoom
-      data-lk-theme="default"
-      serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_URL}
-      token={token}
-      connect={true}
-      video={video}
-      audio={audio}
-    >
-      <VideoConference />
-    </LiveKitRoom>
+    // <LiveKitRoom
+    //   data-lk-theme="default"
+    //   serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_URL}
+    //   token={token}
+    //   connect={true}
+    //   video={video}
+    //   audio={audio}
+    // >
+    //   <VideoConference />
+    // </LiveKitRoom>
+    <div>yet to add</div>
   )
 }
