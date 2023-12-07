@@ -115,7 +115,7 @@ export const ChatItem = ({
     form.reset({
       content: content,
     })
-  }, [content]);
+  }, [content]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fileType = fileUrl?.split(".").pop();
 
